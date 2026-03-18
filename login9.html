@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .image{
+            border:3px solid red;
+            width:700px;
+            margin-left: 200px;
+            padding-bottom: 50px;
+            padding-top: 50px;
+            background-color: red;
+        }
+        .login{
+            border:2px solid red;
+            width:600px;
+            margin-left: 50px;
+            margin-right: 50px;
+            background-color: white;
+        }
+        form{
+            margin-left: 20px;
+        }
+        input{
+            padding:10px;
+            padding-right:130px;
+            background-color:rgb(224, 215, 199);
+            border:1px solid rgb(224, 215, 199);
+        }
+        a{
+            text-decoration: none;
+        }
+        button{
+            padding:10px;
+            padding-left :129px;
+            padding-right: 129px;
+            background-color: red;
+            border:1px solid red;
+        }
+        p,b{
+            text-underline-offset: 6px;
+            text-decoration: underline;
+            text-decoration-color:rgb(106, 7, 66) ;
+            font-size: large;
+        }
+    </style>
+</head>
+<body>
+    <div class="image">
+        <div class="login"  style="display:flex; flex-direction:row;">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ6NvY94-_vg-PeR-pPLIVKj7FlDj5ROCGCCQ&s" alt="Student Image" style="border:3px solid wheat">
+            <form id="loginForm">
+                <p><b>Login</b></p>
+                <label>Username*</label><br>
+                <input type="text"  id="username" placeholder="Enter your Username"> <br><br>
+                <label>Password*</label><br>
+                <input type="password" id="password"  placeholder="Enter your password"><br> <br>
+                <input type="checkbox" id="remember">
+                <label >Remember me</label> <br><br>
+                <button type="submit">LOGIN</button><br><br>
+                <a href="login8.html">Forgot Password?</a><br><br>
+                <a href="registration1.html">Don't have an account?</a><br><br>
+            </form>
+        </div>
+    </div>
+
+
+    <script>
+        const form = document.getElementById("loginForm");
+
+form.addEventListener("submit", function (event) {
+    event.preventDefault(); // stop page refresh
+
+    const username = document.getElementById("username").value.trim();
+    const password = document.getElementById("password").value.trim();
+    const remember = document.getElementById("remember").checked;
+
+    // Validation
+    if (!username || !password) {
+        alert("Please enter username and password");
+        return;
+    }
+
+    // Fake login check (for learning)
+    if (username === "admin" && password === "1234") {
+        alert("Login Successful ");
+
+        if (remember) {
+            localStorage.setItem("username", username);
+        }
+
+        console.log("User logged in:", username);
+    } else {
+        alert("Invalid Username or Password ");
+    }
+});
+    </script>
+    
+</body>
+</html>
